@@ -74,7 +74,7 @@ export const getColumns = (
               <DropdownMenuLabel>Actions</DropdownMenuLabel>
 
               <DropdownMenuSeparator />
-              <Link to={`/edit/${record._id}`}>
+              <Link to={`/${record._id}/edit`}>
                 <DropdownMenuItem>Edit</DropdownMenuItem>
               </Link>
 

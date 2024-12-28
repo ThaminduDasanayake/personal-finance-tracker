@@ -14,6 +14,7 @@ interface FinancialRecord {
 }
 
 interface FinancialRecordsContextType {
+  user: ReturnType<typeof useUser>["user"];
   userId: string;
   records: FinancialRecord[] | undefined;
   isLoading: boolean;
@@ -42,7 +43,7 @@ export const FinancialRecordsProvider = ({
 
   return (
     <FinancialRecordsContext.Provider
-      value={{ userId, records, isLoading, addRecord }}
+      value={{ user, userId, records, isLoading, addRecord }}
     >
       {children}
     </FinancialRecordsContext.Provider>

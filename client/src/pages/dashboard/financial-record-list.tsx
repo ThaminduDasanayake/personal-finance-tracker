@@ -1,7 +1,4 @@
-import { useFinancialRecords } from "@/contexts/financial-record-context";
-import { getColumns } from "./columns";
-import { DataTable } from "./data-table";
-import { useFinancialRecordsHook } from "@/hooks/useFinancialRecordsHook";
+import { DataTable } from "@/components/data-table";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -12,10 +9,13 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-import { useState } from "react";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
+import { useFinancialRecords } from "@/contexts/financial-record-context";
+import { useFinancialRecordsHook } from "@/hooks/useFinancialRecordsHook";
 import { LoaderCircle } from "lucide-react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { getColumns } from "./columns";
 
 export const FinancialRecordList = () => {
   const { userId } = useFinancialRecords();
@@ -53,9 +53,11 @@ export const FinancialRecordList = () => {
 
   return (
     <div className="container mx-auto py-10">
-      <Link to="/add" className={buttonVariants({ variant: "default" })}>
-        Add New Record
-      </Link>
+      <div className="flex justify-end mb-4">
+        <Link to="/add" className={buttonVariants({ variant: "default" })}>
+          Add New Record
+        </Link>
+      </div>
       <DataTable data={records ?? []} columns={columns} />
 
       <AlertDialog open={dialogOpen} onOpenChange={setDialogOpen}>
