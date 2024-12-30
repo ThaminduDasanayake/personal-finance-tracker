@@ -23,8 +23,6 @@ import { Link } from "react-router-dom";
 export const NavUser = () => {
   const { user } = useFinancialRecords();
 
-  console.log(user);
-
   const { isMobile } = useSidebar();
 
   return (
